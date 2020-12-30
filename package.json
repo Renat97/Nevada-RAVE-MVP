@@ -1,0 +1,19 @@
+{
+  "name": "nevada-rave",
+  "version": "1.0.0",
+  "description": "Minimum Viable product for the Northern Nevada R.A.V.E Family Foundation",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Renat97/MVP.git"
+  },
+  "author": "Renat Norderhaug",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Renat97/MVP/issues"
+  },
+  "homepage": "https://github.com/Renat97/MVP#readme"
+}
