@@ -139,6 +139,10 @@ app.use('/graphql', graphqlHTTP({
   graphiql: true
 }))
 
+app.use('/help', (req, res, next) => {
+  res.sendFile(path.join(__dirname, '../client/dist', 'index.html'));
+})
+
 app.listen(PORT, () =>
   console.log('server running')
 )
