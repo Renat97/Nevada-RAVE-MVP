@@ -3,6 +3,7 @@ import Button from '@material-ui/core/Button';
 import { BrowserRouter as Router, Route, Switch, Link, Redirect } from "react-router-dom"
 import HomePage from '../pages';
 import Registration from '../pages/Registration.jsx';
+import VolunteerForm from './VolunteerForm.jsx';
 
 var App = () => {
   return (

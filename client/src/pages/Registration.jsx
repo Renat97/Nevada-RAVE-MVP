@@ -1,4 +1,4 @@
-import React, {useState, Fragment} from 'react';
+import React, {useState, Fragment, useEffect} from 'react';
 import Button from '@material-ui/core/Button';
 import {Header, Footer} from '../layouts';
 import SaveIcon from '@material-ui/icons/Save';
@@ -10,21 +10,19 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import {makeStyles, ThemeProvider, createMuiTheme} from '@material-ui/core/styles';
 import { palette, spacing, typography } from '@material-ui/system';
 import Box from '@material-ui/core/Box';
-import { Container } from '@material-ui/core';
+import { Container, TextField } from '@material-ui/core';
 import Grid from '@material-ui/core/Grid';
 import Image from 'material-ui-image'
-import { FormControl, InputLabel, Input, FormHelperText } from '@material-ui/core';
+import { FormControl, InputLabel, Input, FormHelperText, Paper } from '@material-ui/core';
+import VolunteerForm from '../components/VolunteerForm.jsx';
 
-const useStyles = makeStyles({
-  root: {
-    background: 'linear-gradient(90deg, #a4cc38, #a4cc38)',
-    border: 0,
-    marginRight: 4,
-    borderRadius: 15,
-    color: 'white',
-    fontSize: '12px'
+const useStyles = makeStyles(theme => ({
+  pageContent: {
+    margin: theme.spacing(5),
+    padding: theme.spacing(3)
   }
-})
+}));
+
 
 var CheckBoxExample = () => {
   const [checked, setChecked] = useState(true);
@@ -36,45 +34,18 @@ var CheckBoxExample = () => {
   )
 }
 
-var HomePage = () => {
+var Registration = () => {
   const classes = useStyles();
   return (
     <div style={{backgroundColor: '#302b2c'}}>
       <Header>
       </Header>
-      <Grid
-      container
-      spacing={0}
-      direction="column"
-      alignItems="center"
-      justify="center"
-      style={{marginBottom:"15px", marginTop: "15px"}}
-      >
-      <FormControl style={{color: "white"}}>
-      <InputLabel htmlFor="my-input" style={{color: "white"}}>Username
-      </InputLabel>
-      <Input required style={{color: "white"}} id="my-input" aria-describedby="my-helper-text" />
-      </FormControl  >
-      <FormControl style={{color: "white"}}>
-      <InputLabel htmlFor="my-input2" style={{color: "white"}}>Password
-      </InputLabel>
-      <Input required type="password" id="my-input2" style={{color: "white"}} aria-describedby="my-helper-text" />
-      </FormControl>
-      </Grid>
-      <Grid container direction="row" justify="center" alignItems="flex-start">
-      <Grid>
-      <Button startIcon={<AddIcon />} variant="contained" className={classes.root} style={{fontSize: 12}}>
-      Register
-      </Button>
-      </Grid>
-      <Grid>
-      <Button startIcon={<ExitToAppIcon />} variant="contained"  style={{fontSize: 12}} className={classes.root}>
-      Login
-      </Button>
-      </Grid>
-      </Grid>
+      <Paper variant="outlined" className={classes.pageContent}>
+      <VolunteerForm>
+      </VolunteerForm>
+      </Paper>
     </div>
   );
 }
 
-export default HomePage;
+export default Registration;

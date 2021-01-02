@@ -14,6 +14,8 @@ import { Container } from '@material-ui/core';
 import Grid from '@material-ui/core/Grid';
 import Image from 'material-ui-image'
 import { FormControl, InputLabel, Input, FormHelperText } from '@material-ui/core';
+import { Link } from 'react-router-dom'
+
 
 const useStyles = makeStyles({
   root: {
@@ -62,13 +64,13 @@ var HomePage = () => {
       </FormControl>
       </Grid>
       <Grid container direction="row" justify="center" alignItems="flex-start">
-      <Grid>
-      <Button startIcon={<AddIcon />} variant="contained" className={classes.root} style={{fontSize: 12}}>
+      <Grid item>
+      <Button startIcon={<AddIcon />} variant="contained" className={classes.root} style={{fontSize: 12}} component={Link} to="/registration">
       Register
       </Button>
       </Grid>
-      <Grid>
-      <Button startIcon={<ExitToAppIcon />} variant="contained"  style={{fontSize: 12}} className={classes.root}>
+      <Grid item>
+      <Button startIcon={<ExitToAppIcon />} variant="contained"  style={{fontSize: 12}} className={classes.root} component={Link} to="/login">
       Login
       </Button>
       </Grid>
