@@ -1,9 +1,12 @@
 import React, {useState} from 'react';
+import styled from 'styled-components';
+
+var footer = styled.div`text-align: center; position: absolute; bottom: 0; background: #302b2c;`
 
 var Footer = () => {
   return (
     <div>
-      <h1>Footer</h1>
+      <footer>Copyright Renat Norderhaug</footer>
     </div>
   );
 }

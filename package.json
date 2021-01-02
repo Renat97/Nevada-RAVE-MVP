@@ -34,6 +34,7 @@
     "graphql": "^15.4.0",
     "jest-specific-snapshot": "^4.0.0",
     "jest-styled-components": "^7.0.3",
+    "material-ui-image": "^3.3.1",
     "mocha": "^8.2.1",
     "nodemon": "^2.0.6",
     "react-fontawesome": "^1.7.1",

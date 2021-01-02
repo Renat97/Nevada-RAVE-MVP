@@ -139,7 +139,7 @@ app.use('/graphql', graphqlHTTP({
   graphiql: true
 }))
 
-app.use('/help', (req, res, next) => {
+app.get('/registration', (req, res, next) => {
   res.sendFile(path.join(__dirname, '../client/dist', 'index.html'));
 })
 
