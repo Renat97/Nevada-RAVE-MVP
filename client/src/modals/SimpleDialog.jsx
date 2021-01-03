@@ -266,7 +266,7 @@ export function SimpleDialog(props) {
   return (
     <Fragment>
     <Dialog maxWidth={'sm'} fullWidth={true} style={{margin: 0, width: '100%'}} onClose={handleClose} aria-labelledby="simple-dialog-title" open={open} classes={{ paper: classes.dialogWrapper}}>
-    <DialogContent style={{ overflow: "scroll"}}>
+    <DialogContent style={{ overflow: "scroll", overflowX: "hidden"}}>
       {selectedValue ==='checkOut' &&
         <DialogConditionalTwo/>
       }
