@@ -80,6 +80,14 @@ var VolunteerLogin = () => {
        hours = `${num}`
        break;
    }
+  console.log(num);
+  if(num === 0) {
+    hours = 12;
+  }
+  if(num === 12) {
+    hours = 12;
+  }
+
   return hours;
   }
 

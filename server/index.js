@@ -1,4 +1,8 @@
 // server with GraphQL
+//<meta
+//name="viewport"
+//content="minimum-scale=1, initial-scale=1, width=device-width"
+///>
 const express = require('express');
 const { graphqlHTTP } = require('express-graphql');
 const PORT = process.env.port || 3000;

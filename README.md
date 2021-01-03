@@ -1,6 +1,5 @@
 # Nevada RAVE Foundation
 # web application for the Nothern Nevada R.A.V.E Family Foundation that will speed up the check in process and business operations for volunteers, families, and staff members.
-
 # Server API using GraphQL instead of Rest, Here are the Routes
 
 # REGISTRATION, Post request to register a volunteer after user clicks on "create account", this will store the volunteers information in the database in the registration table, the password will be hashed using the Bcrypt library to ensure the account is safe
