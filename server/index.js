@@ -143,6 +143,10 @@ app.get('/registration', (req, res, next) => {
   res.sendFile(path.join(__dirname, '../client/dist', 'index.html'));
 })
 
+app.get('/login', (req, res, next) => {
+  res.sendFile(path.join(__dirname, '../client/dist', 'index.html'));
+})
+
 app.listen(PORT, () =>
   console.log('server running')
 )

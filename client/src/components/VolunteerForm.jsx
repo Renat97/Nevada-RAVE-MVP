@@ -33,7 +33,7 @@ const InitialValues = {
   firstName: '',
   lastName: '',
   email: '',
-  userName: '',
+  username: '',
   password: '',
   emergencyContactName: '',
   emergencyContactNumber: ''
@@ -54,7 +54,7 @@ return (
 <form className={classes.textInput}>
        <Grid container>
        <Grid item xs= {12} align="center">
-         <TextField variant="outlined"  label="firstName" name="firstName" value={values.firstName} InputProps={{
+         <TextField variant="outlined"  label="first name" name="firstName" value={values.firstName} InputProps={{
            style: {
              color: "black",
              backgroundColor: "#d9dedd"
@@ -64,7 +64,7 @@ return (
          </TextField>
        </Grid>
        <Grid item xs= {12} align="center" >
-         <TextField variant="outlined" label="lastName" name="lastName" value={values.lastName}  InputProps={{
+         <TextField variant="outlined" label="last name" name="lastName" value={values.lastName}  InputProps={{
            style: {
              color: "black",
              backgroundColor: "#d9dedd"
