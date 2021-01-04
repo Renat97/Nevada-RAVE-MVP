@@ -5,6 +5,7 @@ import HomePage from '../pages';
 import Registration from '../pages/Registration.jsx';
 import VolunteerLogin from '../pages/VolunteerLogin.jsx';
 import VolunteerForm from './VolunteerForm.jsx';
+import VolunteerHours from '../pages/VolunteerHours.jsx';
 
 var App = () => {
   return (
@@ -13,6 +14,7 @@ var App = () => {
      <Route exact path="/" component= {HomePage} />
      <Route exact path="/registration" component = {Registration}/>
      <Route exact path="/login" component = {VolunteerLogin}/>
+     <Route exact path="/volunteerLogin" component = {VolunteerHours}/>
      </Switch>
     </Router>
   );

@@ -80,7 +80,6 @@ var VolunteerLogin = () => {
        hours = `${num}`
        break;
    }
-  console.log(num);
   if(num === 0) {
     hours = 12;
   }
@@ -152,7 +151,7 @@ var VolunteerLogin = () => {
       </Button>
       </Grid>
       <Grid item xs={12} align="center">
-      <Button startIcon={<HistoryIcon/>} variant="contained"  className={classes.root} component={Link} to="/login">
+      <Button startIcon={<HistoryIcon/>} variant="contained"  className={classes.root} component={Link} to="/volunteerLogin">
       View Hours
       </Button>
       </Grid>

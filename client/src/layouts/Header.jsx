@@ -9,6 +9,7 @@ import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import { withStyles } from '@material-ui/core/styles';
 import Box from '@material-ui/core/Box';
+import { BrowserRouter as Router, Route, Switch, Link, Redirect } from "react-router-dom"
 
 const useStyles = makeStyles((theme) => ({
   appBar: {
@@ -31,7 +32,7 @@ var Header = () => {
       <Typography className={classes.typography}  variant="h6" color="inherit">
         Nevada R.A.V.E
       </Typography>
-      <Box>
+      <Box component={Link} to="/">
       <img src="https://nnrff.org/wp-content/uploads/RAVE_icon_noBG-1024x731.png" width="100" height="50" alt=""></img>
       </Box>
       </Grid>

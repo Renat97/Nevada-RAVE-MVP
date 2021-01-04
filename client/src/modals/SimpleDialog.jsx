@@ -80,7 +80,7 @@ const values = {
   staffSignature: ''
 }
 
-export function RadioButtonsGroup() {
+export function RadioButtonsGroup(props) {
   const [values, setValues] = useState(InitialValues);
   const [decision, setDecision] = useState(0);
   const [decision1, setDecision1] = useState(0);
@@ -184,11 +184,7 @@ export function RadioButtonsGroup() {
     </FormControl>
     </Grid>
 
-    <Grid container
-  style={{
-    margin: 0,
-    width: '100%',
-  }}>
+    <Grid container style={{ margin: 0, width: '100%'}}>
     <FormControl component="fieldset">
     <FormLabel component="legend"> Fever Check (under 100.4)</FormLabel>
     <RadioGroup aria-label="gender" name="gender1" value={form4} onChange={handleChange4}>
@@ -224,7 +220,7 @@ export function RadioButtonsGroup() {
     </TextField>
     </Grid>
     <Grid item container sm={3} style={{margin: 0, width: '100%'}}>
-    <Button align="center" startIcon={<ExitToAppIcon />} variant="contained"  style={{fontSize: 12}} className={classes.root} component={Link} to="/login">
+      <Button align="center" startIcon={<ExitToAppIcon />} variant="contained"  style={{fontSize: 12}} className={classes.root} onClick={props.handleClose}>
       Submit
     </Button>
     </Grid>
@@ -241,12 +237,12 @@ export function SimpleDialog(props) {
   const classes = useStyles();
   const { onClose, selectedValue, open, date } = props;
 
-  const DialogConditionalOne = () => {
+  const DialogConditionalOne = (props) => {
     return (
     <Fragment>
     <DialogTitle className={classes.title}>Checked in!</DialogTitle>
     <Typography align="center" className={classes.text}> {date} </Typography >
-    <RadioButtonsGroup/>
+    <RadioButtonsGroup handleClose = {props.handleClose}/>
     </Fragment>
     );
   }
@@ -266,12 +262,12 @@ export function SimpleDialog(props) {
   return (
     <Fragment>
     <Dialog maxWidth={'sm'} fullWidth={true} style={{margin: 0, width: '100%'}} onClose={handleClose} aria-labelledby="simple-dialog-title" open={open} classes={{ paper: classes.dialogWrapper}}>
-    <DialogContent style={{ overflow: "scroll", overflowX: "hidden"}}>
+    <DialogContent style={{ overflow: "scroll", overflowX: "hidden", align: "center"}}>
       {selectedValue ==='checkOut' &&
         <DialogConditionalTwo/>
       }
       {selectedValue ==='checkIn' &&
-        <DialogConditionalOne/>
+        <DialogConditionalOne handleClose= {handleClose}/>
       }
     </DialogContent>
     </Dialog>
