@@ -7,6 +7,7 @@ import { FormControl, InputLabel, Input, FormHelperText } from '@material-ui/cor
 import {makeStyles, ThemeProvider, createMuiTheme} from '@material-ui/core/styles';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import { Link } from 'react-router-dom'
+import axios from 'axios';
 
 const useStyles = makeStyles( theme => ({
   root: {
@@ -42,6 +43,12 @@ const InitialValues = {
 var VolunteerForm = () => {
 const classes = useStyles();
 const [values, setValues] = useState(InitialValues);
+
+const registerVolunteer = (data) => {
+  axios.post('/login', data).then((response) => {
+    console.log('data has been sent');
+  })
+}
 
 const handleInputChange = (e) => {
   const {name, value} = e.target;
@@ -124,7 +131,7 @@ return (
        </Grid>
       </Grid>
       <Grid container justify="flex-end">
-      <Button startIcon={<ExitToAppIcon />} variant="contained"  style={{fontSize: 12}} className={classes.root} component={Link} to="/">
+      <Button startIcon={<ExitToAppIcon />} variant="contained"  style={{fontSize: 12}} className={classes.root} component={Link} to="/" onClick={() => {registerVolunteer(values)} }>
       Sign up
       </Button>
       </Grid>

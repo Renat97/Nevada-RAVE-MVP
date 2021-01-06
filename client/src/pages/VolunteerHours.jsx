@@ -13,9 +13,42 @@ import Switch from '@material-ui/core/Switch';
 import DeleteIcon from '@material-ui/icons/Delete';
 import FilterListIcon from '@material-ui/icons/FilterList';
 import Table from '../components/Table.jsx';
+import Button from '@material-ui/core/Button';
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+import { Link } from 'react-router-dom'
+
+const useStyles = makeStyles((theme) => ({
+  typographyOne: {
+    textDecoration: 'underline'
+  },
+  typographyTwo: {
+    fontWeight: 'bold'
+  },
+  Grid: {
+    backgroundColor: '#231f20',
+    padding: 0,
+    '& .MuiGrid-root': {
+      paddingRight: '0px',
+      marginTop: '10px',
+      marginBottom: '10px'
+    },
+    '& .MuiPaper-root': {
+    }
+  },
+  root: {
+    background: 'linear-gradient(90deg, #a4cc38, #a4cc38)',
+    border: 0,
+    marginRight: 4,
+    borderRadius: 15,
+    color: 'white',
+    fontSize: '12px',
+    height: '25px',
+    marginBottom: '5px'
+  }
+}))
 
 const VolunteerHours = () => {
-
+  const classes = useStyles();
   return (
     <Fragment>
       <Header></Header>
@@ -24,30 +57,46 @@ const VolunteerHours = () => {
       <Table/>
       </Grid>
       </Grid>
-      <Grid container style ={{marginTop: '10px'}} spacing={2}  >
-      <Grid xs = {6}item>
-        <Card>
-          <Typography>Quarter one hours: July-September</Typography>
+      <Grid container classes={{root: classes.Grid}} style ={{marginTop: '10px', alignContent: 'center'}} spacing={0} alignContent="center" align="center">
+      <Grid xs = {6} item align="center">
+        <Card align="center" style ={{width: '60%'}}>
+          <Typography variant="h4">Quarter One Hours</Typography>
+          <Typography classes={{root: classes.typographyTwo}}  variant="subtitle2">July-September</Typography>
+          <Typography classes={{root: classes.typographyOne}}>Total Hours: 275 </Typography>
         </Card>
       </Grid >
-      <Grid xs = {6} item>
-        <Card>
-          <Typography>Quarter Two Hours: October -december</Typography>
+      <Grid xs = {6} item align="center">
+        <Card align="center" style ={{width: '60%'}}>
+          <Typography variant="h4">Quarter Two Hours</Typography>
+          <Typography  classes={{root: classes.typographyTwo}} variant="subtitle2">October-December</Typography>
+          <Typography classes={{root: classes.typographyOne}}>Total Hours: 460 </Typography>
+        </Card>
+      </Grid >
+      <Grid xs = {6} item align="center">
+        <Card align="center" style ={{width: '60%'}}>
+          <Typography variant="h4">Quarter Three Hours</Typography>
+          <Typography classes={{root: classes.typographyTwo}} variant="subtitle2">January-March</Typography>
+          <Typography classes={{root: classes.typographyOne}} >Total Hours: 460 </Typography>
+        </Card>
+      </Grid >
+      <Grid xs = {6} item align="center">
+        <Card align="center" style ={{width: '60%'}}>
+          <Typography variant="h4">Quarter Four Hours</Typography>
+          <Typography classes={{root: classes.typographyTwo}} variant="subtitle2">April-June</Typography>
+          <Typography classes={{root: classes.typographyOne}}>Total Hours: 310 </Typography>
         </Card>
       </Grid>
-      <Grid xs = {6} item>
-      <Card>
-      <Typography>Quarter Three Hours: January - March</Typography>
-      </Card>
+      <Grid xs = {12} item align="center">
+        <Card align="center" style ={{width: '35%'}}>
+          <Typography variant="h3">Yearly Total</Typography>
+          <Typography classes={{root: classes.typographyOne}}>Total Hours: 1505</Typography>
+          <Button startIcon={<ExitToAppIcon />} variant="contained"  style={{fontSize: 12}} className={classes.root} component={Link} to="/login">
+          Go back
+          </Button>
+        </Card>
       </Grid>
-      <Grid xs = {6} item>
-      <Card>
-      <Typography>Quarter Four Hours: April - June</Typography>
-      </Card>
-      </Grid>
-      </Grid>
+      </Grid >
 
-      <Typography>Total Hours: </Typography>
     </Fragment>
   )
 

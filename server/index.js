@@ -9,6 +9,8 @@ const PORT = process.env.port || 3000;
 const path = require("path");
 const axios = require("axios");
 const faker = require("faker");
+var bodyParser = require('body-parser')
+const {addVolunteer, getUserRole} = require('../database/models.js');
 const {
   GraphQLSchema,
   GraphQLObjectType,
@@ -20,6 +22,7 @@ const {
 
 const app = express();
 app.use(express.static(path.join(__dirname, '../client/dist')));
+app.use(bodyParser.json());
 
 const authors = [
 	{ id: 1, name: 'J. K. Rowling' },
@@ -143,9 +146,32 @@ app.use('/graphql', graphqlHTTP({
   graphiql: true
 }))
 
+app.get('/authentication/:userName', (req, res, next) => {
+  console.log('DATA SENT', req.params.userName);
+  getUserRole(req,(err,data) => {
+    if(err) {
+      console.log('error getting the users role')
+      console.log(err);
+    } else {
+      res.send(data);
+    }
+  })
+})
+
 app.get('/registration', (req, res, next) => {
   res.sendFile(path.join(__dirname, '../client/dist', 'index.html'));
 })
+// handle authentication on login
+app.post('/login', (req, res, next) => {
+  console.log('DATA SENT',req.body);
+  addVolunteer(req,(err,data) => {
+    if(err) {
+      console.log('error submitting the data to database in model, ERROR FROM SERVER');
+    } else {
+      res.send('Successfully sent data');
+    }
+  })
+});
 
 app.get('/login', (req, res, next) => {
   res.sendFile(path.join(__dirname, '../client/dist', 'index.html'));

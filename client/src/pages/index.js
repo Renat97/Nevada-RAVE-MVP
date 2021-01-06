@@ -1,4 +1,4 @@
-import React, {useState, Fragment} from 'react';
+import React, {useState, Fragment, useEffect} from 'react';
 import Button from '@material-ui/core/Button';
 import {Header, Footer} from '../layouts';
 import SaveIcon from '@material-ui/icons/Save';
@@ -15,6 +15,11 @@ import Grid from '@material-ui/core/Grid';
 import Image from 'material-ui-image'
 import { FormControl, InputLabel, Input, FormHelperText } from '@material-ui/core';
 import { Link } from 'react-router-dom'
+import axios from 'axios';
+import App from '../components/App.jsx';
+import {store} from '../index.jsx';
+import {useSelector, useDispatch} from 'react-redux';
+import {authenticate} from '../actions';
 
 
 const useStyles = makeStyles({
@@ -40,6 +45,21 @@ var CheckBoxExample = () => {
 
 var HomePage = () => {
   const classes = useStyles();
+  const [userName, setUserName] = useState('');
+
+  const authenticated = useSelector(state => state.authenticate)
+  const dispatch = useDispatch();
+
+  var getUserInfo = (user) => {
+    axios.get(`/authentication/${user}`).then((data) => {
+      console.log('SENT INFO', data.data[0])
+      dispatch(authenticate(data.data[0].position));
+    });
+  }
+
+  const handleInputChange = (e) => {
+    setUserName(e.target.value);
+  }
   return (
     <div style={{backgroundColor: '#302b2c'}}>
       <Header>
@@ -55,7 +75,7 @@ var HomePage = () => {
       <FormControl style={{color: "white"}}>
       <InputLabel htmlFor="my-input" style={{color: "white"}}>Username
       </InputLabel>
-      <Input required style={{color: "white"}} id="my-input" aria-describedby="my-helper-text" />
+      <Input onChange={handleInputChange} required style={{color: "white"}} id="my-input" aria-describedby="my-helper-text" />
       </FormControl  >
       <FormControl style={{color: "white"}}>
       <InputLabel htmlFor="my-input2" style={{color: "white"}}>Password
@@ -70,7 +90,7 @@ var HomePage = () => {
       </Button>
       </Grid>
       <Grid item>
-      <Button startIcon={<ExitToAppIcon />} variant="contained"  style={{fontSize: 12}} className={classes.root} component={Link} to="/login">
+      <Button onClick={() => getUserInfo(userName)} startIcon={<ExitToAppIcon />} variant="contained"  style={{fontSize: 12}} className={classes.root} component={Link} to="/login">
       Login
       </Button>
       </Grid>

@@ -188,7 +188,7 @@ export function RadioButtonsGroup(props) {
     <FormControl component="fieldset">
     <FormLabel component="legend"> Fever Check (under 100.4)</FormLabel>
     <RadioGroup aria-label="gender" name="gender1" value={form4} onChange={handleChange4}>
-    <Grid container direction="row" justify="center" alignItems="center" style={{width: '552px'}}>
+    <Grid container direction="row" justify="center" alignItems="center" style={{width: '520px'}}>
      <Grid item container sm={3}>
       <FormControlLabel value="yes" control={<Checkbox />} label="yes" onChange={handleChange4}/>
       </Grid>

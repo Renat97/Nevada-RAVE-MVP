@@ -1,3 +1,3 @@
 import styled from 'styled-components';
 
-var 
+var home = styled.div`color: blue`;
