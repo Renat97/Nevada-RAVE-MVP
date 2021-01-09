@@ -20,6 +20,8 @@ import App from '../components/App.jsx';
 import {store} from '../index.jsx';
 import {useSelector, useDispatch} from 'react-redux';
 import {authenticate} from '../actions';
+import AccountCircle from '@material-ui/icons/AccountCircle';
+import InputAdornment from '@material-ui/core/InputAdornment';
 
 
 const useStyles = makeStyles({
@@ -80,7 +82,7 @@ var HomePage = () => {
       <FormControl style={{color: "white"}}>
       <InputLabel htmlFor="my-input2" style={{color: "white"}}>Password
       </InputLabel>
-      <Input required type="password" id="my-input2" style={{color: "white"}} aria-describedby="my-helper-text" />
+      <Input required type="password"  id="my-input2" style={{color: "white"}} aria-describedby="my-helper-text" />
       </FormControl>
       </Grid>
       <Grid container direction="row" justify="center" alignItems="flex-start">

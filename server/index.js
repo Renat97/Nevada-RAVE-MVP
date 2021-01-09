@@ -179,6 +179,9 @@ app.get('/login', (req, res, next) => {
 app.get('/volunteerLogin', (req, res, next) => {
   res.sendFile(path.join(__dirname, '../client/dist', 'index.html'));
 })
+app.get('/familyCheckIn', (req, res, next) => {
+  res.sendFile(path.join(__dirname, '../client/dist', 'index.html'));
+})
 
 app.listen(PORT, () =>
   console.log('server running')

@@ -61,7 +61,7 @@ return (
 <form className={classes.textInput}>
        <Grid container>
        <Grid item xs= {12} align="center">
-         <TextField variant="outlined"  label="first name" name="firstName" value={values.firstName} InputProps={{
+         <TextField variant="filled" label="first name" name="firstName" value={values.firstName} InputProps={{
            style: {
              color: "black",
              backgroundColor: "#d9dedd"
@@ -71,7 +71,7 @@ return (
          </TextField>
        </Grid>
        <Grid item xs= {12} align="center" >
-         <TextField variant="outlined" label="last name" name="lastName" value={values.lastName}  InputProps={{
+         <TextField variant="filled" label="last name" name="lastName" value={values.lastName}  InputProps={{
            style: {
              color: "black",
              backgroundColor: "#d9dedd"
@@ -81,7 +81,7 @@ return (
          </TextField>
        </Grid>
        <Grid item xs= {12} align="center" >
-         <TextField variant="outlined" name="email" label="email" type="email" value={values.email}  InputProps={{
+         <TextField variant="filled" name="email" label="email" type="email" value={values.email}  InputProps={{
            style: {
              color: "black",
              backgroundColor: "#d9dedd"
@@ -91,7 +91,7 @@ return (
          </TextField>
        </Grid>
        <Grid item xs= {12} align="center" >
-         <TextField variant="outlined" label="username" name="username" value={values.username} InputProps={{
+         <TextField variant="filled" label="username" name="username" value={values.username} InputProps={{
            style: {
              color: "black",
              backgroundColor: "#d9dedd"
@@ -101,7 +101,7 @@ return (
          </TextField>
        </Grid>
        <Grid item xs= {12} align="center" >
-         <TextField variant="outlined" label="password" name="password" type="password" value={values.password}  InputProps={{
+         <TextField variant="filled" label="password" name="password" type="password" value={values.password}  InputProps={{
            style: {
              color: "black",
              backgroundColor: "#d9dedd"
@@ -110,7 +110,7 @@ return (
          </TextField>
        </Grid>
        <Grid item xs= {12} align="center" >
-         <TextField variant="outlined" label="emergency name" name="emergencyContactName" value={values.emergencyContactName}  InputProps={{
+         <TextField variant="filled" label="emergency name" name="emergencyContactName" value={values.emergencyContactName}  InputProps={{
            style: {
              color: "black",
              backgroundColor: "#d9dedd"
@@ -120,7 +120,7 @@ return (
          </TextField>
        </Grid>
        <Grid item xs= {12} align="center">
-         <TextField variant="outlined" label="emergency #" name="emergencyContactNumber"value={values.emergencyContactNumber}  InputProps={{
+         <TextField variant="filled" label="emergency #" name="emergencyContactNumber"value={values.emergencyContactNumber}  InputProps={{
            style: {
              color: "black",
              backgroundColor: "#d9dedd"

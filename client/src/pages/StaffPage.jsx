@@ -27,6 +27,9 @@ const useStyles = makeStyles({
     borderRadius: 15,
     color: 'white',
     fontSize: '12px'
+  },
+  item: {
+    flexGrow: 1
   }
 })
 
@@ -131,8 +134,14 @@ var StaffPage = () => {
   const [state, setState] = React.useState({
     checkedA: false,
     checkedB: false,
-    checkedF: true,
-    checkedG: true,
+    checkedC: false,
+    checkedD: false,
+    checkedE: false,
+    checkedF: false,
+    checkedG: false,
+    checkedH: false,
+    checkedI: false,
+    checkedJ: false
   });
 
   return (
@@ -145,6 +154,7 @@ var StaffPage = () => {
       direction="column"
       justify="center"
       style={{marginBottom:"15px", marginTop: "15px"}}
+      className={classes.item}
       >
       <Grid container direction="row" justify="center" alignItems="center">
       <Grid item xs={12} align="center">
@@ -153,10 +163,10 @@ var StaffPage = () => {
       </Button>
       </Grid>
       <Grid item xs={12} align="center">
-      <Paper style={{width: "80%", marginTop:"20px"}} >
+      <Paper style={{width: "80%", marginTop:"20px"}} elevation={3} variant="outlined" square>
          <Grid container>
          <Grid container item xs={5} lg={2} md={2} direction="column" align="left" justify="flex-start" alignItems="flex-start">
-        <Button startIcon={<CloudUploadIcon />} color="secondary" style={{cursor:"pointer"}}>The Smith family</Button>
+        <Button component={Link} to="/FamilyCheckIn" startIcon={<CloudUploadIcon />} color="secondary" style={{cursor:"pointer"}}>Smith</Button>
         <FormControlLabel style={{alignItems: "center", marginBottom: "-10px", position:"relative", top :"-15px"}}
         control={<Checkbox checked={state.checkedA} onChange={handleChange} name="checkedA" style={{position:"relative", left :"5px"}} />}
         label="Checked in"
@@ -164,74 +174,74 @@ var StaffPage = () => {
         </Grid>
 
         <Grid container item xs={5} lg={2} md={2} direction="column" align="left" justify="flex-start" alignItems="flex-start">
-        <Button startIcon={<CloudUploadIcon />} color="secondary" style={{cursor:"pointer"}}>The Smith family</Button>
+        <Button component={Link} to="/FamilyCheckIn" startIcon={<CloudUploadIcon />} color="secondary" style={{cursor:"pointer"}}>Johnson</Button>
         <FormControlLabel style={{alignItems: "center", marginBottom: "-10px", position:"relative", top :"-15px"}}
-        control={<Checkbox checked={state.checkedA} onChange={handleChange} name="checkedA" style={{position:"relative", left :"5px"}} />}
+        control={<Checkbox checked={state.checkedB} onChange={handleChange} name="checkedB" style={{position:"relative", left :"5px"}} />}
         label="Checked in"
         />
         </Grid>
 
         <Grid container item xs={5} lg={2} md={2} direction="column" align="left" justify="flex-start" alignItems="flex-start">
-        <Button startIcon={<CloudUploadIcon />} color="secondary" style={{cursor:"pointer", position:"relative", right:"2px"}}>The Smith family</Button>
+        <Button startIcon={<CloudUploadIcon />} color="secondary" style={{cursor:"pointer", position:"relative", right:"2px"}}>Lorwanphet</Button>
         <FormControlLabel style={{alignItems: "center", marginBottom: "-10px", position:"relative", top :"-15px"}}
-        control={<Checkbox checked={state.checkedA} onChange={handleChange} name="checkedA" style={{position:"relative", left :"5px"}} />}
+        control={<Checkbox checked={state.checkedC} onChange={handleChange} name="checkedC" style={{position:"relative", left :"5px"}} />}
         label="Checked in"
         />
         </Grid>
 
 
         <Grid container item xs={5} lg={2} md={2} direction="column" align="left" justify="flex-start" alignItems="flex-start">
-        <Button startIcon={<CloudUploadIcon />} color="secondary" style={{cursor:"pointer"}}>The Norderhaug family</Button>
+        <Button component={Link} to="/FamilyCheckIn" startIcon={<CloudUploadIcon />} color="secondary" style={{cursor:"pointer"}}>Norderhaug</Button>
         <FormControlLabel style={{alignItems: "center", marginBottom: "-10px", position:"relative", top :"-15px"}}
-        control={<Checkbox checked={state.checkedA} onChange={handleChange} name="checkedA" style={{position:"relative", left :"5px"}} />}
+        control={<Checkbox checked={state.checkedD} onChange={handleChange} name="checkedD" style={{position:"relative", left :"5px"}} />}
         label="Checked in"
         />
         </Grid>
 
         <Grid container item xs={5} lg={2} md={2} direction="column" align="left" justify="flex-start" alignItems="flex-start">
-        <Button startIcon={<CloudUploadIcon />} color="secondary" style={{cursor:"pointer"}}>The Smith family</Button>
+        <Button component={Link} to="/FamilyCheckIn" startIcon={<CloudUploadIcon />} color="secondary" style={{cursor:"pointer"}}>Galettly</Button>
         <FormControlLabel style={{alignItems: "center", marginBottom: "-10px", position:"relative", top :"-15px"}}
-        control={<Checkbox checked={state.checkedA} onChange={handleChange} name="checkedA" style={{position:"relative", left :"5px"}} />}
+        control={<Checkbox checked={state.checkedE} onChange={handleChange} name="checkedE" style={{position:"relative", left :"5px"}} />}
         label="Checked in"
         />
         </Grid>
 
         <Grid container item xs={5} lg={2} md={2} direction="column" align="left" justify="flex-start" alignItems="flex-start">
-        <Button startIcon={<CloudUploadIcon />} color="secondary" style={{cursor:"pointer", position:"relative", right:"2px"}}>The Smith family</Button>
+        <Button component={Link} to="/FamilyCheckIn" startIcon={<CloudUploadIcon />} color="secondary" style={{cursor:"pointer", position:"relative", right:"2px"}}>Oumbre</Button>
         <FormControlLabel style={{alignItems: "center", marginBottom: "-10px", position:"relative", top :"-15px"}}
-        control={<Checkbox checked={state.checkedA} onChange={handleChange} name="checkedA" style={{position:"relative", left :"5px"}} />}
+        control={<Checkbox checked={state.checkedF} onChange={handleChange} name="checkedF" style={{position:"relative", left :"5px"}} />}
         label="Checked in"
         />
         </Grid>
 
         <Grid container item xs={5} lg={2} md={2} direction="column" align="left" justify="flex-start" alignItems="flex-start">
-        <Button startIcon={<CloudUploadIcon />} color="secondary" style={{cursor:"pointer"}}>The Smith family</Button>
+        <Button component={Link} to="/FamilyCheckIn" startIcon={<CloudUploadIcon />} color="secondary" style={{cursor:"pointer"}}>Johnson</Button>
         <FormControlLabel style={{alignItems: "center", marginBottom: "-10px", position:"relative", top :"-15px"}}
-        control={<Checkbox checked={state.checkedA} onChange={handleChange} name="checkedA" style={{position:"relative", left :"5px"}} />}
+        control={<Checkbox checked={state.checkedG} onChange={handleChange} name="checkedG" style={{position:"relative", left :"5px"}} />}
         label="Checked in"
         />
         </Grid>
 
         <Grid container item xs={5} lg={2} md={2} direction="column" align="left" justify="flex-start" alignItems="flex-start">
-        <Button startIcon={<CloudUploadIcon />} color="secondary" style={{cursor:"pointer"}}>The Smith family</Button>
+        <Button component={Link} to="/FamilyCheckIn" startIcon={<CloudUploadIcon />} color="secondary" style={{cursor:"pointer"}}>Curry</Button>
         <FormControlLabel style={{alignItems: "center", marginBottom: "-10px", position:"relative", top :"-15px"}}
-        control={<Checkbox checked={state.checkedA} onChange={handleChange} name="checkedA" style={{position:"relative", left :"5px"}} />}
+        control={<Checkbox checked={state.checkedH} onChange={handleChange} name="checkedH" style={{position:"relative", left :"5px"}} />}
         label="Checked in"
         />
         </Grid>
 
         <Grid container item xs={5} lg={2} md={2} direction="column" align="left" justify="flex-start" alignItems="flex-start">
-        <Button startIcon={<CloudUploadIcon />} color="secondary" style={{cursor:"pointer", position:"relative", right:"2px"}}>The Smith family</Button>
+        <Button component={Link} to="/FamilyCheckIn" startIcon={<CloudUploadIcon />} color="secondary" style={{cursor:"pointer", position:"relative", right:"2px"}}>Thompson</Button>
         <FormControlLabel style={{alignItems: "center", marginBottom: "-10px", position:"relative", top :"-15px"}}
-        control={<Checkbox checked={state.checkedA} onChange={handleChange} name="checkedA" style={{position:"relative", left :"5px"}} />}
+        control={<Checkbox checked={state.checkedI} onChange={handleChange} name="checkedI" style={{position:"relative", left :"5px"}} />}
         label="Checked in"
         />
         </Grid>
 
         <Grid container item xs={5} lg={2} md={2} direction="column" align="left" justify="flex-start" alignItems="flex-start">
-        <Button startIcon={<CloudUploadIcon />} color="secondary" style={{cursor:"pointer", position:"relative", right:"2px"}}>The Smith family</Button>
+        <Button component={Link} to="/FamilyCheckIn" startIcon={<CloudUploadIcon />} color="secondary" style={{cursor:"pointer", position:"relative", right:"2px"}}>Jordan</Button>
         <FormControlLabel style={{alignItems: "center", marginBottom: "-10px", position:"relative", top :"-15px"}}
-        control={<Checkbox checked={state.checkedA} onChange={handleChange} name="checkedA" style={{position:"relative", left :"5px"}} />}
+        control={<Checkbox checked={state.checkedJ} onChange={handleChange} name="checkedJ" style={{position:"relative", left :"5px"}} />}
         label="Checked in"
         />
         </Grid>

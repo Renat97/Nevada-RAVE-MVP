@@ -12,6 +12,7 @@ import StaffPage from '../pages/StaffPage.jsx';
 import MasterStaffPage from '../pages/MasterStaffPage.jsx';
 import ErrorPage from '../pages/404.jsx';
 import {authenticate} from '../actions';
+import FamilyCheckInPage from '../pages/FamilyCheckInPage.jsx';
 
 function Authentication(props) {
   const position = props.position;
@@ -55,6 +56,7 @@ var App = (props) => {
      <Route exact path="/volunteerLogin" component = {VolunteerHours}/>
      <Route exact path="/staffLogin" component = {StaffPage}/>
      <Route exact path="/masterStaffLogin" component = {StaffPage}/>
+     <Route exact path="/familyCheckIn" component={FamilyCheckInPage}/>
      </Switch>
     </Router>
   );
