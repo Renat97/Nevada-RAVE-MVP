@@ -2,7 +2,7 @@
 # web application for the Nothern Nevada R.A.V.E Family Foundation that will speed up the check in process and business operations for volunteers, families, and staff members.
 # Server API using GraphQL instead of Rest, Here are the Routes
 
-# To use the application, use the user's root, staff, and masterstaff, there passwords are rootpass, staff, masterstaff, respectively.
+# To use the application, use the user's root, staff, and masterstaff, there passwords are rootpass, staff, masterstaff, respectively. press on the RAVE Logo on the top right to log out and go back to the Home Page.
 
 # REGISTRATION, Post request to register a volunteer after user clicks on "create account", this will store the volunteers information in the database in the registration table, the password will be hashed using the Bcrypt library to ensure the account is safe
 
