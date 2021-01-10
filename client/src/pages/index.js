@@ -114,13 +114,23 @@ export const Proof = () => {
   )
 }
 
+var ErrorPage = () => {
+  return (
+    <div>
+      <h1>Invalid Password</h1>
+    </div>
+  )
+}
+
 var HomePage = () => {
 
   const classes = useStyles();
   const [userName, setUserName] = useState('');
+  const [error, setError] = useState(0);
 
-  const [values, setValues] = React.useState({
+  const [values, setValues] = useState({
     amount: '',
+    userName: '',
     password: '',
     weight: '',
     weightRange: '',
@@ -131,10 +141,17 @@ var HomePage = () => {
   const dispatch = useDispatch();
 
   var getUserInfo = (user) => {
+    axios.post('/authenticate', { userName: userName, password: values.password}). then((response) => {
+      console.log('RESPONSE', response);
+    }).catch(error => {
+       location.reload()
+    })
+
     axios.get(`/authentication/${user}`).then((data) => {
       console.log('SENT INFO', data.data[0])
       dispatch(authenticate(data.data[0].position));
     });
+
   }
 
   const handleInputChange = (e) => {
@@ -170,9 +187,6 @@ var HomePage = () => {
         <FormControl className={clsx(classes.margin, classes.textField)} variant="outlined" style={{width: "300px"}}>
           <InputLabel htmlFor="outlined-adornment-username" required style={{color: "black"}}>Username</InputLabel>
           <OutlinedInput
-             InputLabelProps={{
-              className: classes.testLabel
-            }}
             classes={{root: classes.outlinedInput}}
             style={{color: "black", backgroundColor: "white"}}
             id="outlined-adornment-password"

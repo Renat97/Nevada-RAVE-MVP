@@ -10,7 +10,7 @@ const path = require("path");
 const axios = require("axios");
 const faker = require("faker");
 var bodyParser = require('body-parser')
-const {addVolunteer, getUserRole} = require('../database/models.js');
+const {addVolunteer, getUserRole, signIn} = require('../database/models.js');
 const {
   GraphQLSchema,
   GraphQLObjectType,
@@ -23,6 +23,7 @@ const {
 const app = express();
 app.use(express.static(path.join(__dirname, '../client/dist')));
 app.use(bodyParser.json());
+app.set('view engine', 'ejs');
 
 const authors = [
 	{ id: 1, name: 'J. K. Rowling' },
@@ -154,6 +155,19 @@ app.get('/authentication/:userName', (req, res, next) => {
       console.log(err);
     } else {
       res.send(data);
+    }
+  })
+})
+
+app.post('/authenticate', (req, res) => {
+  console.log('DATA AUTHENTICATE', req.body.userName);
+  signIn(req,(err, data) => {
+    if(err) {
+      console.log('THE ERROR',err);
+      console.log('error getting user, bad pass');
+      res.sendStatus(401);
+    } else {
+      res.sendStatus(200);
     }
   })
 })

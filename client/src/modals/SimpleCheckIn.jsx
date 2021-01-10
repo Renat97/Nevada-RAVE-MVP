@@ -85,7 +85,7 @@ function SimpleCheckIn(props) {
     return (
     <Fragment>
     <DialogTitle id="simple-dialog-title" align="center">Checked out!</DialogTitle>
-    <Typography align="center"> {date} </Typography>
+    <Typography style={{position:'relative',top:'-15px'}} align="center"> {date} </Typography>
     </Fragment>
     );
   }

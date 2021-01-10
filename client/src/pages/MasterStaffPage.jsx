@@ -15,6 +15,24 @@ import Image from 'material-ui-image'
 import { FormControl, InputLabel, Input, FormHelperText, SvgIcon, IconButton } from '@material-ui/core';
 import { Link } from 'react-router-dom'
 import {SimpleDialog} from '../modals';
+import Calendar from 'react-calendar';
+import { Inject,ScheduleComponent,Day, Week, WorkWeek, Month, Agenda, EventSettingsModel} from '@syncfusion/ej2-react-schedule';
+
+
+export function MasterStaff() {
+
+  var data = new EventSettingsModel;
+
+
+
+  return (
+    <div>
+
+    </div>
+  )
+}
+
+
 
 var MasterStaffPage = () => {
 return (
@@ -22,23 +40,12 @@ return (
     <Header>
 
     </Header>
-    <Grid container spacing={4} alignItems="center" justify="center">
-      <Grid item xs={12}>
-        <Paper align="center">
-          <h1>Volunteers</h1>
-        </Paper>
-      </Grid>
-      <Grid item xs={6}>
-        <Paper>
-          <h1>Family</h1>
-        </Paper>
-      </Grid>
-      <Grid item xs={6}>
-        <Paper>
-          <h1>Staff</h1>
-        </Paper>
-      </Grid>
-    </Grid>
+    <Container style={{ marginTop: "75px"}}>
+    <ScheduleComponent currentView="Month">
+      <Inject services={[Day, Week, WorkWeek, Month]} />
+    </ScheduleComponent>
+    </Container>
+
   </Fragment>
 )
 
