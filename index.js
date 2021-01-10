@@ -5,7 +5,7 @@
 ///>
 const express = require('express');
 const { graphqlHTTP } = require('express-graphql');
-const PORT = process.env.port || 3000;
+const PORT = process.env.PORT || 3000;
 const path = require("path");
 const axios = require("axios");
 const faker = require("faker");
