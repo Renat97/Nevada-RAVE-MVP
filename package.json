@@ -4,7 +4,7 @@
   "description": "Minimum Viable product for the Northern Nevada R.A.V.E Family Foundation",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon ./server/index.js",
+    "start": "nodemon index.js",
     "react-dev": "webpack -d -w"
   },
   "repository": {
