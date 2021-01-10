@@ -59,7 +59,7 @@ const signIn = async (req, callBack) => {
         console.log('error', err);
         callBack(err, null);
       } else {
-        console.log(data[0].pass);
+        console.log('DATA',data);
         console.log(password);
         // const validPassword = await validatePassword(password, data[0].pass);
         const validPassword = data[0].pass === password;
