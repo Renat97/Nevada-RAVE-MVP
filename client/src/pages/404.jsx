@@ -7,7 +7,9 @@ const NotFoundPage = () => {
     <div>
       <Header>
       </Header>
+      <div style={{textAlign:"Center", color: "white"}}>
       <h2> Incorrect user login!</h2>
+      </div>
     </div>
   )
 }

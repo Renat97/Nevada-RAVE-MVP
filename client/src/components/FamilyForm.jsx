@@ -111,15 +111,15 @@ handleRadioButtonChange(e) {
           )
         case 2:
           return (
-            <FormPersonalDetails nextStep={this.nextStep} handleChange={this.handleChange} values={values} handleRadioButtonChange={this.handleRadioButtonChange}/>
+            <FormPersonalDetails nextStep={this.nextStep} prevStep={this.prevStep} handleChange={this.handleChange} values={values} handleRadioButtonChange={this.handleRadioButtonChange}/>
           )
         case 3:
           return (
-            <ChildrenForms children={children}/>
+            <ChildrenForms children={children} prevStep={this.prevStep}/>
           )
         case 4:
           return (
-            <h1> Fourth form page</h1>
+            <h1> The end </h1>
           )
       }
     return (

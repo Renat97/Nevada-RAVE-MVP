@@ -36,6 +36,8 @@ const useStyles = makeStyles(theme => ({
     padding: theme.spacing(2),
     position: 'absolute',
     top:'-2%',
+    right: '20px',
+    left: '-20px',
     overflow:'scroll',
   },
   root: {

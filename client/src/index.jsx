@@ -14,10 +14,10 @@ export const store = createStore(allReducer,  window.__REDUX_DEVTOOLS_EXTENSION_
 const theme = createMuiTheme({
   palette: {
     primary: {
-      main: purple[500],
+      main: "#a4cc38",
     },
     secondary: {
-      main: green[500],
+      main: "#a4cc38",
     },
   }
 

@@ -150,7 +150,10 @@ var ChildrenForms = (props) => {
     <Grid item container justify="center">
     <Typography variant="subtitle2"> 3. Is your child's Temperature under 100.4 degrees Farenheit?</Typography>
     </Grid>
-    <Grid item container justify="center">
+    <Grid container justify="center" direction="row" alignItems="center">
+    <Button startIcon={<ExitToAppIcon />} variant="contained"  style={{fontSize: 12, marginTop: '10px'}} className={classes.root} onClick={props.prevStep}>
+    Back
+    </Button>
     <Button startIcon={<ExitToAppIcon />} style={{fontSize: 12, marginTop: '10px'}} className={classes.root} component={Link} to="/login">
       Submit
     </Button>

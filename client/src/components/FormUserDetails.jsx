@@ -14,7 +14,8 @@ import ChildrenForm from './ChildrenForm.jsx';
 const useStyles = makeStyles((theme) => ({
   paper: {
     width: "90%",
-    height: "95%"
+    height: "80%",
+    border: "1px black"
   },
   grid: {
     color: "black"
@@ -39,6 +40,10 @@ const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(1),
     minWidth: 120,
   },
+  textInput: {
+    position: 'relative',
+    left: '-15px',
+  }
 }));
 
 const theme = createMuiTheme({
@@ -64,22 +69,21 @@ var continueNext = (e) => {
 const { values, nextStep, handleChange, handleButtonChange } = props;
 return (
     <Fragment>
-      <Paper align="center" className={classes.paper}>
+      <Paper align="center" className={classes.paper} elevation={8}>
       <Typography variant="h3" className={classes.typography}>Family Check In Part 1</Typography>
       <Grid container alignItems="center" justify="center" align="center" className={classes.grid}>
-      <Grid item container spacing={1} alignItems="flex-end" justify="center">
+      <Grid item className={classes.textInput}  container spacing={1} alignItems="flex-end" justify="center">
       <Grid item>
             <AccountCircle />
       </Grid>
       <Grid item>
-      <TextField  required label="Gaurdian One" onChange={(e) => { handleChange('gaurdianOneName',e)}}
+      <TextField required label="Gaurdian One" onChange={(e) => { handleChange('gaurdianOneName',e)}}
       defaultValue={values.gaurdianOneName}
       />
       </Grid>
       </Grid>
 
-
-      <Grid item container spacing={1} alignItems="flex-end" justify="center">
+      <Grid item className={classes.textInput} container spacing={1} alignItems="flex-end" justify="center">
       <Grid item>
             <AccountCircle />
       </Grid>
@@ -91,9 +95,34 @@ return (
       </Grid>
 
 
+      <Grid item container spacing={1} alignItems="flex-end" justify="center">
+      <Grid item>
+      <TextField  required label="Signature" onChange={(e) => { handleChange('gaurdianOneSignature',e)}}
+      defaultValue={values.gaurdianOneSignature}
+      />
+      </Grid>
+      </Grid>
+
+      <Grid item container spacing={1} alignItems="flex-end" justify="center">
+      <Grid item>
+      <TextField  required label="Signature" onChange={(e) => { handleChange('gaurdianTwoSignature',e)}}
+      defaultValue={values.gaurdianTwoSignature}
+      />
+      </Grid>
+      </Grid>
+
+      <Grid item container spacing={1} alignItems="flex-end" justify="center">
+      <Grid item>
+      <TextField required label="Staff Signature" onChange={(e) => { handleChange('staffSignature',e)}}
+      defaultValue={values.staffSignature}
+      />
+      </Grid>
+      </Grid>
+
+
     <FormControl component="fieldset" className={classes.formControl}>
         <FormLabel required  component="legend" color="secondary">1) Is anyone in the family experiencing the following symptoms: </FormLabel>
-        <Grid container alignItems="center" justify="center">
+        <Grid container alignItems="center" justify="center" style={{margin:'0px', padding: '0px'}}>
         <FormGroup>
           <Grid item container>
           <FormControlLabel
@@ -169,7 +198,7 @@ export var FormPersonalDetails = (props) => {
   const classes = useStyles();
   const [children, setChildren] = useState('');
 
-  const { values, nextStep, handleChange, handleRadioButtonChange } = props;
+  const { values, nextStep, handleChange, handleRadioButtonChange, prevStep } = props;
   return (
   <Fragment>
         <Paper align="center" className={classes.paper}>
@@ -233,6 +262,9 @@ export var FormPersonalDetails = (props) => {
           </Grid>
 
           <Grid item container justify="center">
+          <Button startIcon={<ExitToAppIcon />} variant="contained"  style={{fontSize: 12}} className={classes.root} onClick={prevStep}>
+          Back
+          </Button>
           <Button startIcon={<ExitToAppIcon />} variant="contained"  style={{fontSize: 12}} className={classes.root} onClick={nextStep}>
           Next
           </Button>
