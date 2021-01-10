@@ -20,14 +20,14 @@ const addVolunteer = async (req, callBack) => {
   let email = req.body.email
   let username = req.body.username
   let pass = req.body.password
-  const hashedPass = await hashPassword(pass);
+  // const hashedPass = await hashPassword(pass);
   // const accessToken = jwt.sign({ userId: 18928 }, process.env.JWT_SECRET, {
   //   expiresIn: "1d"
   //  });
   let emergencyContactName = req.body.emergencyContactName
   let emergencyContactNumber = req.body.emergencyContactNumber
   let position = 'volunteer'
-  connection.query(`insert into registration (firstName,lastName,email,username,pass,emergencyContactName,emergencyContactNumber,position) values("${firstName}","${lastName}","${email}","${username}","${hashedPass}","${emergencyContactName}", "${emergencyContactNumber}","${position}")`, (err, data) => {
+  connection.query(`insert into registration (firstName,lastName,email,username,pass,emergencyContactName,emergencyContactNumber,position) values("${firstName}","${lastName}","${email}","${username}","${pass}","${emergencyContactName}", "${emergencyContactNumber}","${position}")`, (err, data) => {
     if(err) {
       console.log('error in models.js file when posting to database the volunteer')
       console.log(err);
@@ -59,9 +59,10 @@ const signIn = async (req, callBack) => {
         console.log('error', err);
         callBack(err, null);
       } else {
-        console.log(data);
+        console.log(data[0].pass);
         console.log(password);
-        const validPassword = await validatePassword(password, data[0].pass);
+        // const validPassword = await validatePassword(password, data[0].pass);
+        const validPassword = data[0].pass === password;
         if(!validPassword) {
           console.log('INVALID PASS');
           callBack("password is wrong", null);

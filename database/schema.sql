@@ -1,4 +1,3 @@
-CREATE DATABASE if not exists rave;
 
 DROP TABLE if exists registration;
 
@@ -14,3 +13,6 @@ CREATE TABLE if not exists registration(
   position ENUM('volunteer','staff','masterStaff'),
   accessToken varchar(1000)
 );
+
+insert into registration (username, pass, position) values('staff','staff','staff');
+insert into registration (username, pass, position) values ('masterstaff', 'masterstaff','masterStaff');

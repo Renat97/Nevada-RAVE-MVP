@@ -10,7 +10,7 @@ const path = require("path");
 const axios = require("axios");
 const faker = require("faker");
 var bodyParser = require('body-parser')
-const {addVolunteer, getUserRole, signIn} = require('../database/models.js');
+const {addVolunteer, getUserRole, signIn} = require('./database/models.js');
 const {
   GraphQLSchema,
   GraphQLObjectType,
@@ -21,7 +21,7 @@ const {
 } = require('graphql');
 
 const app = express();
-app.use(express.static(path.join(__dirname, '../client/dist')));
+app.use(express.static(path.join(__dirname, './client/dist')));
 app.use(bodyParser.json());
 app.set('view engine', 'ejs');
 
@@ -173,7 +173,7 @@ app.post('/authenticate', (req, res) => {
 })
 
 app.get('/registration', (req, res, next) => {
-  res.sendFile(path.join(__dirname, '../client/dist', 'index.html'));
+  res.sendFile(path.join(__dirname, './client/dist', 'index.html'));
 })
 // handle authentication on login
 app.post('/login', (req, res, next) => {
@@ -188,13 +188,13 @@ app.post('/login', (req, res, next) => {
 });
 
 app.get('/login', (req, res, next) => {
-  res.sendFile(path.join(__dirname, '../client/dist', 'index.html'));
+  res.sendFile(path.join(__dirname, './client/dist', 'index.html'));
 })
 app.get('/volunteerLogin', (req, res, next) => {
-  res.sendFile(path.join(__dirname, '../client/dist', 'index.html'));
+  res.sendFile(path.join(__dirname, './client/dist', 'index.html'));
 })
 app.get('/familyCheckIn', (req, res, next) => {
-  res.sendFile(path.join(__dirname, '../client/dist', 'index.html'));
+  res.sendFile(path.join(__dirname, './client/dist', 'index.html'));
 })
 
 app.listen(PORT, () =>

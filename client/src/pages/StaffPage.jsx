@@ -182,7 +182,7 @@ var StaffPage = () => {
         </Grid>
 
         <Grid container item xs={5} lg={2} md={2} direction="column" align="left" justify="flex-start" alignItems="flex-start">
-        <Button startIcon={<CloudUploadIcon />} color="primary" style={{cursor:"pointer", position:"relative", right:"2px"}}>Lorwanphet</Button>
+        <Button component={Link} to="/FamilyCheckIn" startIcon={<CloudUploadIcon />} color="primary" style={{cursor:"pointer", position:"relative", right:"2px"}}>Lorwanphet</Button>
         <FormControlLabel style={{alignItems: "center", marginBottom: "-10px", position:"relative", top :"-15px"}}
         control={<Checkbox checked={state.checkedC} onChange={handleChange} name="checkedC" style={{position:"relative", left :"5px", color: "#a4cc38"}} />}
         label="Checked in"
