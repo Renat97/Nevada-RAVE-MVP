@@ -18,7 +18,6 @@ import { FormControl, InputLabel, Input, FormHelperText, Paper } from '@material
 import { Link } from 'react-router-dom'
 import axios from 'axios';
 import App from '../components/App.jsx';
-import {store} from '../index.jsx';
 import {useSelector, useDispatch} from 'react-redux';
 import {authenticate} from '../actions';
 import AccountCircle from '@material-ui/icons/AccountCircle';
@@ -41,7 +40,7 @@ const useStyles = makeStyles((theme) => ({
     fontSize: '12px',
   },
   root2: {
-    background: 'linear-gradient(90deg, #E3C9CEFF, #E3C9CEFF)',
+    background: 'linear-gradient(90deg, #a4cc38, #a4cc38)',
     border: 0,
     marginRight: 4,
     borderRadius: 15,
@@ -59,9 +58,7 @@ const useStyles = makeStyles((theme) => ({
     width: '25ch',
   },
   outlined: {
-    '&$focused': {
-      color: 'white'
-    }
+
   },
   image: {
     height: "300px",
@@ -71,18 +68,7 @@ const useStyles = makeStyles((theme) => ({
     color: "white"
   },
   outlinedInput: {
-    "& $notchedOutline": {
-      borderWidth: 0,
-      color: "white"
-    },
-    "&:hover $notchedOutline": {
-      borderWidth: 0,
-      color: "white"
-    },
-    "&$focused $notchedOutline": {
-      borderWidth: 0,
-      color: "white"
-    }
+
   }
 }));
 
@@ -122,7 +108,13 @@ var ErrorPage = () => {
   )
 }
 
-var HomePage = () => {
+var HomePage = (props) => {
+
+  // var isLoad = 0;
+
+  // useEffect(() => {
+  //  window.location.reload()
+  // }, [isLoad]);
 
   const classes = useStyles();
   const [userName, setUserName] = useState('');
@@ -172,7 +164,7 @@ var HomePage = () => {
 
 
   return (
-    <div style={{backgroundColor: '#302b2c'}}>
+    <div classname="divClass1" style={{backgroundColor: '#302b2c'}}>
       <Header>
       </Header>
       <Container style={{border: " 4px solid #a4cc38 ", height: "350px", marginTop:"50px", width: "90%",}}>
@@ -185,11 +177,11 @@ var HomePage = () => {
       style={{marginBottom:"15px", marginTop: "15px",}}
       >
         <FormControl className={clsx(classes.margin, classes.textField)} variant="outlined" style={{width: "300px"}}>
-          <InputLabel htmlFor="outlined-adornment-username" required style={{color: "black"}}>Username</InputLabel>
-          <OutlinedInput
+          <InputLabel className="label1" htmlFor="outlined-adornment-username" required style={{color: "black"}}>Username</InputLabel>
+          <OutlinedInput className="input1"
             classes={{root: classes.outlinedInput}}
             style={{color: "black", backgroundColor: "white"}}
-            id="outlined-adornment-password"
+            id="outlined-adornment-username"
             value={userName}
             onChange={handleInputChange}
             endAdornment={
@@ -206,7 +198,7 @@ var HomePage = () => {
 
       <FormControl className={clsx(classes.margin, classes.textField)} variant="outlined" style={{width: "300px"}}>
           <InputLabel style={{color: "black"}} htmlFor="outlined-adornment-password" required>Password</InputLabel>
-          <OutlinedInput
+          <OutlinedInput className="input2"
             style={{color: "black", backgroundColor: "white"}}
             id="outlined-adornment-password"
             type={values.showPassword ? 'text' : 'password'}

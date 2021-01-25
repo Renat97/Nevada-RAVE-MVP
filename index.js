@@ -9,8 +9,8 @@ const PORT = process.env.PORT || 3000;
 const path = require("path");
 const axios = require("axios");
 const faker = require("faker");
-var bodyParser = require('body-parser')
-const {addVolunteer, getUserRole, signIn} = require('./database/models.js');
+const bodyParser = require('body-parser')
+const {addVolunteer, getUserRole, signIn, getFirstAccount} = require('./database/models.js');
 const {
   GraphQLSchema,
   GraphQLObjectType,
@@ -24,6 +24,8 @@ const app = express();
 app.use(express.static(path.join(__dirname, './client/dist')));
 app.use(bodyParser.json());
 app.set('view engine', 'ejs');
+const authRoute = require('./routes/auth.js');
+app.use('/api/user',authRoute);
 
 const authors = [
 	{ id: 1, name: 'J. K. Rowling' },
@@ -40,6 +42,11 @@ const books = [
 	{ id: 6, name: 'The Return of the King', authorId: 2 },
 	{ id: 7, name: 'The Way of Shadows', authorId: 3 },
 	{ id: 8, name: 'Beyond the Shadows', authorId: 3 }
+]
+
+const users = [
+  { id: 1, firstName: 'John', lastName: 'Smith', email: 'js@j.com', username: 'John', password: 'John', emergencyContactName: 'jeff', emergencyContact: '4089123201', role: 'volunteer' },
+  { id: 2, firstName: 'James', lastName: 'Smith', email: 'js@j.com', username: 'John', password: 'John', emergencyContactName: 'jeff', emergencyContact: '4089123201', role: 'staff' }
 ]
 
 const BookType = new GraphQLObjectType({

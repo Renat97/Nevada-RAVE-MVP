@@ -59,14 +59,26 @@ const signIn = async (req, callBack) => {
         console.log('error', err);
         callBack(err, null);
       } else {
+        if(data == []) {
+          console.log('hello');
+        }
         console.log('DATA',data);
         console.log(password);
+        if(data.length === 0) {
+          console.log('NO PASS DEFINED');
+          callBack("password doesnt exist", null);
+        }
         // const validPassword = await validatePassword(password, data[0].pass);
+        if(data[0].pass === undefined) {
+          console.log('NO PASS DEFINED');
+          callBack("password doesnt exist", null);
+        }
         const validPassword = data[0].pass === password;
         if(!validPassword) {
           console.log('INVALID PASS');
           callBack("password is wrong", null);
         } else {
+          console.log('VALID PASS');
           callBack(null, data);
         }
       }
@@ -76,10 +88,24 @@ const signIn = async (req, callBack) => {
   }
 }
 
+const getFirstAccount = (data,callBack) => {
+  connection.query(`select * from registration where userName = ${data.userName}`, (err, data) => {
+    if(err) {
+      console.log('CANT GET REGISTRATION INFO');
+      console.log(err);
+      callBack(err);
+    } else {
+      console.log('GOT DATA');
+      callBack(null,data);
+    }
+  })
+}
+
 // const JWT_SECRET={{'3439he'}}
 
 module.exports = {
   addVolunteer,
   getUserRole,
-  signIn
+  signIn,
+  getFirstAccount
 }

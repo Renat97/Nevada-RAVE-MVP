@@ -67,7 +67,7 @@ var Header = () => {
   return (
     <AppBar className={classes.appBar}position="static">
     <Toolbar>
-      <IconButton edge="start" aria-label="menu" style={{color: "white"}} ref={anchorRef}
+      <IconButton className="IconButtonClass" edge="start" aria-label="menu" style={{color: "white"}} ref={anchorRef}
           aria-controls={open ? 'menu-list-grow' : undefined}
           aria-haspopup="true"
           onClick={handleToggle}>

@@ -4,6 +4,7 @@ import {increment, decrement, signIn} from '../actions';
 import Button from '@material-ui/core/Button';
 import { BrowserRouter as Router, Route, Switch, Link, Redirect } from "react-router-dom"
 import HomePage from '../pages';
+import fetch from 'node-fetch';
 import Registration from '../pages/Registration.jsx';
 import VolunteerLogin from '../pages/VolunteerLogin.jsx';
 import VolunteerForm from './VolunteerForm.jsx';
@@ -13,6 +14,30 @@ import MasterStaffPage from '../pages/MasterStaffPage.jsx';
 import ErrorPage from '../pages/404.jsx';
 import {authenticate} from '../actions';
 import FamilyCheckInPage from '../pages/FamilyCheckInPage.jsx';
+import MasterStaffNewPage from '../pages/MasterStaffNewPage.jsx';
+import {ApolloClient, InMemoryCache, ApolloProvider, HttpLink, from} from "@apollo/client";
+import {onError} from '@apollo/client/link/error';
+
+const errorLink = onError(({ graphqlErrors, networkError}) => {
+  if(graphqlErrors) {
+    graphqlErrors.map(({message, location, path}) => {
+      alert(`Graphql error ${message}`);
+    });
+  }
+  if(networkError) {
+    alert(`Network error ${networkError}`)
+  }
+});
+
+const link = from([
+  errorLink,
+  new HttpLink({uri: "http://localhost:3000/graphql", fetch})
+]);
+
+const client = new ApolloClient({
+  cache: new InMemoryCache(),
+  link: link
+})
 
 function Authentication(props) {
   const position = props.position;
@@ -26,7 +51,7 @@ function Authentication(props) {
     )
   } else if(position==="masterStaff") {
     return (
-    <MasterStaffPage/>
+    <MasterStaffNewPage/>
     )
   } else {
     return (
@@ -46,6 +71,7 @@ var App = (props) => {
   console.log('ROLE',role);
   //HomePage
   return (
+    <ApolloProvider client={client}>
     <Router>
       <Switch>
      <Route exact path="/" component= {HomePage} />
@@ -59,6 +85,7 @@ var App = (props) => {
      <Route exact path="/familyCheckIn" component={FamilyCheckInPage}/>
      </Switch>
     </Router>
+    </ApolloProvider>
   );
 }
 
