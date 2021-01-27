@@ -164,7 +164,7 @@ var HomePage = (props) => {
 
 
   return (
-    <div classname="divClass1" style={{backgroundColor: '#302b2c'}}>
+    <div className="divClass1" style={{backgroundColor: '#302b2c'}}>
       <Header>
       </Header>
       <Container style={{border: " 4px solid #a4cc38 ", height: "350px", marginTop:"50px", width: "90%",}}>

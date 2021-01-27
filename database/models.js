@@ -89,7 +89,7 @@ const signIn = async (req, callBack) => {
 }
 
 const getFirstAccount = (data,callBack) => {
-  connection.query(`select * from registration where userName = ${data.userName}`, (err, data) => {
+  connection.query(`select * from registration where userName = ${data}`, (err, data) => {
     if(err) {
       console.log('CANT GET REGISTRATION INFO');
       console.log(err);

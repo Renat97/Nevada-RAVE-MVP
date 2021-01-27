@@ -44,11 +44,6 @@ const books = [
 	{ id: 8, name: 'Beyond the Shadows', authorId: 3 }
 ]
 
-const users = [
-  { id: 1, firstName: 'John', lastName: 'Smith', email: 'js@j.com', username: 'John', password: 'John', emergencyContactName: 'jeff', emergencyContact: '4089123201', role: 'volunteer' },
-  { id: 2, firstName: 'James', lastName: 'Smith', email: 'js@j.com', username: 'John', password: 'John', emergencyContactName: 'jeff', emergencyContact: '4089123201', role: 'staff' }
-]
-
 const BookType = new GraphQLObjectType({
   name: "Book",
   description: "This represents a book written by an author",
@@ -79,6 +74,27 @@ const AuthorType = new GraphQLObjectType({
   })
 })
 
+const users = [
+  { id: 1, firstName: 'John', lastName: 'Smith', email: 'js@j.com', username: 'John', pass: 'John', emergencyContactName: 'jeff', emergencyContact: '4089123201', role: 'volunteer' },
+  { id: 2, firstName: 'James', lastName: 'Smith', email: 'js@j.com', username: 'John', pass: 'John', emergencyContactName: 'jeffrey', emergencyContact: '4089123201', role: 'staff' }
+]
+
+const UserType = new GraphQLObjectType({
+  name: "User",
+  description: "This is a user from the MySQL database",
+  fields: () => ({
+    id: { type: GraphQLNonNull(GraphQLInt)},
+    firstName: {type: GraphQLNonNull(GraphQLString)},
+    lastName: {type: GraphQLNonNull(GraphQLString)},
+    email: {type: GraphQLNonNull(GraphQLString)},
+    username: {type: GraphQLNonNull(GraphQLString)},
+    pass: {type: GraphQLNonNull(GraphQLString)},
+    emergencyContactName: {type: GraphQLNonNull(GraphQLString)},
+    emergencyContact: {type: GraphQLNonNull(GraphQLString)},
+    role: {type: GraphQLNonNull(GraphQLString)},
+  })
+});
+
 const RootQueryType = new GraphQLObjectType({
   name: 'Query',
   description: 'Root Query',
@@ -90,6 +106,14 @@ const RootQueryType = new GraphQLObjectType({
         id: { type: GraphQLInt}
       },
       resolve: (parent, args) => books.find(book => book.id === args.id)
+    },
+    registeredUsers: {
+      type: UserType,
+      description: 'A registered user',
+      args: {
+        id: { type: GraphQLInt}
+      },
+      resolve: (parent, args) => getFirstAccount(args.id)
     },
     books: {
       type: new GraphQLList(BookType),
@@ -129,17 +153,17 @@ const RootMutationType = new GraphQLObjectType({
         return book
       }
     },
-      addAuthor: {
-        type: AuthorType,
-        description: 'Add a author',
-        args: {
-          name: { type: GraphQLNonNull(GraphQLString) }
-        },
-        resolve: (parent, args) => {
-          const author = { id: authors.length + 1, name: args.name }
-          authors.push(author)
-          return author
-        }
+    addAuthor: {
+      type: AuthorType,
+      description: 'Add a author',
+      args: {
+        name: { type: GraphQLNonNull(GraphQLString) }
+      },
+      resolve: (parent, args) => {
+        const author = { id: authors.length + 1, name: args.name }
+        authors.push(author)
+        return author
+      }
       }
     })
   })
