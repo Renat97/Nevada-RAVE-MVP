@@ -88,15 +88,17 @@ const signIn = async (req, callBack) => {
   }
 }
 
-const getFirstAccount = (data,callBack) => {
-  connection.query(`select * from registration where userName = ${data}`, (err, data) => {
+const getFirstAccount = (data) => {
+  connection.query(`select * from registration where username = "${data}"`, (err, data) => {
     if(err) {
       console.log('CANT GET REGISTRATION INFO');
       console.log(err);
-      callBack(err);
     } else {
       console.log('GOT DATA');
-      callBack(null,data);
+      console.log(data);
+      console.log(data[0]);
+      var newData = {firstName: data[0].firstName, lastName: data[0].lastName }
+      return newData;
     }
   })
 }

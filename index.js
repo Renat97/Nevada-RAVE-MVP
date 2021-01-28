@@ -111,9 +111,9 @@ const RootQueryType = new GraphQLObjectType({
       type: UserType,
       description: 'A registered user',
       args: {
-        id: { type: GraphQLInt}
+        username: { type: GraphQLString}
       },
-      resolve: (parent, args) => getFirstAccount(args.id)
+      resolve: (parent, args) => getFirstAccount(args.username)
     },
     books: {
       type: new GraphQLList(BookType),
