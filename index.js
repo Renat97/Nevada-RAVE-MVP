@@ -11,6 +11,9 @@ const axios = require("axios");
 const faker = require("faker");
 const bodyParser = require('body-parser')
 const {addVolunteer, getUserRole, signIn, getFirstAccount} = require('./database/models.js');
+const { ApolloServer } = require('apollo-server');
+const gql = require('graphql-tag');
+
 const {
   GraphQLSchema,
   GraphQLObjectType,
@@ -26,6 +29,28 @@ app.use(bodyParser.json());
 app.set('view engine', 'ejs');
 const authRoute = require('./routes/auth.js');
 app.use('/api/user',authRoute);
+
+// const typeDefs = gql`
+// type Query {
+//   sayHi: String!,
+//   getAccount:
+// }
+// `
+
+// const resolvers = {
+//   Query: {
+//     sayHi: () => 'Hello World!'
+//   }
+// }
+
+// const server = new ApolloServer({
+//   typeDefs,
+//   resolvers
+// });
+
+// server.listen({port: 5000}).then(res => {
+//   console.log(`Server running at ${res.url}`);
+// })
 
 const authors = [
 	{ id: 1, name: 'J. K. Rowling' },
@@ -113,7 +138,13 @@ const RootQueryType = new GraphQLObjectType({
       args: {
         username: { type: GraphQLString}
       },
-      resolve: (parent, args) => getFirstAccount(args.username)
+      resolve: (parent, args) => getFirstAccount(args.username, (err,data) => {
+        if(err) {
+          console.log(err);
+        } else {
+          console.log('data recieved', data);
+        }
+      })
     },
     books: {
       type: new GraphQLList(BookType),

@@ -33,10 +33,8 @@ const useStyles = makeStyles(theme => ({
   },
   dialogWrapper: {
     padding: theme.spacing(2),
-    position: 'absolute',
+    position: 'relative',
     top:'-2%',
-    right: '20px',
-    left: '-20px',
     overflow:'scroll',
   },
   root: {
@@ -132,11 +130,12 @@ export function RadioButtonsGroup(props) {
   style={{
     margin: 0,
     width: '100%',
+    textAlign: "center"
   }}>
     <FormControl component="fieldset">
       <FormLabel component="legend" classes= {{focused: classes.form}}>Are you or anyone in the family experiencing the following symptoms?</FormLabel >
       <RadioGroup aria-label="covid" name="covid" value={values} onChange={handleChange}>
-        <FormControlLabel value={InitialValues.symptom1} control={<Radio checked = { decision === 1 ? true : false} onChange={() => setDecision(1)} />} label="Fever of 100.4 degrees or higher" name="symptom1"/>
+        <FormControlLabel value={InitialValues.symptom1} control={<Radio checked = { decision === 1 ? true : false} onChange={() => setDecision(1)} />} label="Fever of 100.4°F +" name="symptom1"/>
         <FormControlLabel value={InitialValues.symptom2} control={<Radio checked = { decision1 === 1 ? true : false} onChange={() => setDecision1(1)} />} label="Dry Cough" name="symptom2"/>
         <FormControlLabel value={InitialValues.symptom3} control={<Radio checked = { decision2 === 1 ? true : false} onChange={() => setDecision2(1)}/>} label="Shortness of Breath" name="symptom3" />
         <FormControlLabel value={InitialValues.symptom4} control={<Radio checked = { decision3 === 1 ? true : false} onChange={() => setDecision3(1)} />} label="Chills" name="symptom4" />

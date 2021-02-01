@@ -22,10 +22,24 @@ const useStyles = makeStyles({
   root: {
     background: 'linear-gradient(90deg, #a4cc38, #a4cc38)',
     border: 0,
-    marginTop: 4,
+    marginTop: 10,
     borderRadius: 15,
     color: 'white',
-    fontSize: '12px'
+    fontSize: '12px',
+    width: '100%',
+    position: "relative",
+    top: '40px'
+  },
+  root2: {
+    background: 'linear-gradient(90deg, #a4cc38, #a4cc38)',
+    border: 0,
+    marginTop: 10,
+    borderRadius: 15,
+    color: 'white',
+    fontSize: '12px',
+    width: '100%',
+    position: "relative",
+    top: '40px'
   }
 })
 
@@ -141,22 +155,25 @@ var VolunteerLogin = () => {
       container
       spacing={0}
       direction="column"
-      justify="center"
+      justify="space-around"
       style={{marginBottom:"15px", marginTop: "15px"}}
       >
+      <Container style={{border: " 4px solid #a4cc38 ", height: "200px", marginTop:"10px", width: "60%"}} alignItems="center" justify=
+      "space-around">
       <Grid container direction="row" justify="center" alignItems="center">
-      <Grid item xs={12} align="center">
+      <Grid item xs={12} align="center" alignItems="flex-end">
       <Button startIcon={<AccessTimeIcon/>} variant="contained" className={classes.root} onClick ={CoronaCheckIn}>
       Check in/Check out
       </Button>
       </Grid>
-      <Grid item xs={12} align="center">
+      <Grid item xs={12} align="center" alignItems="flex-end">
       <Button startIcon={<HistoryIcon/>} variant="contained"  className={classes.root} component={Link} to="/volunteerLogin">
       View Hours
       </Button>
       </Grid>
 
       </Grid>
+      </Container>
       <Box align="center">
       <IconButton aria-label="checkIn">
       <SimpleDialog selectedValue={selectedValue} open={open} onClose={handleClose} date={date.time} />
