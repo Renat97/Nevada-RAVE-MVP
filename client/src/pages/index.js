@@ -176,6 +176,7 @@ var HomePage = (props) => {
       justify="center"
       style={{marginBottom:"15px", marginTop: "15px",}}
       >
+        <Grid item>
         <FormControl className={clsx(classes.margin, classes.textField)} variant="outlined" style={{width: "300px"}}>
           <InputLabel className="label1" htmlFor="outlined-adornment-username" required style={{color: "black"}}>Username</InputLabel>
           <OutlinedInput className="input1"
@@ -194,8 +195,9 @@ var HomePage = (props) => {
           />
         </FormControl>
 
+        </Grid>
 
-
+        <Grid item>
       <FormControl className={clsx(classes.margin, classes.textField)} variant="outlined" style={{width: "300px"}}>
           <InputLabel style={{color: "black"}} htmlFor="outlined-adornment-password" required>Password</InputLabel>
           <OutlinedInput className="input2"
@@ -220,7 +222,7 @@ var HomePage = (props) => {
             required
           />
         </FormControl>
-
+          </Grid>
       </Grid>
       <Grid container direction="column" justify="center" alignItems="center">
       <Grid item>
