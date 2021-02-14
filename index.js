@@ -5,6 +5,7 @@
 ///>
 const express = require('express');
 const { graphqlHTTP } = require('express-graphql');
+const {connection} = require('./database/index.js');
 const PORT = process.env.PORT || 3000;
 const path = require("path");
 const axios = require("axios");
@@ -31,23 +32,40 @@ const authRoute = require('./routes/auth.js');
 app.use('/api/user',authRoute);
 
 const typeDefs = gql`
+type Account {
+  firstName: String,
+  lastName: String,
+  username: String,
+}
 type Query {
   sayHi: String!,
-  getAccount: String!
+  getAccount: Account
 }
 `
 
 const resolvers = {
   Query: {
-    sayHi: () => 'Hello World!',
-    getAccount: () => {
-      getFirstAccount('b', (err,data) => {
+    getAccount() {
+      return new Promise((resolve, reject) => {
+      connection.query(`select * from registration where username = "b"`, (err, data) => {
         if(err) {
-          console.log('error')
+          console.log('CANT GET REGISTRATION INFO');
+          console.log(err);
+          // callBack(err,null);
+          reject(err);
         } else {
-          return data;
+          console.log('GOT DATA');
+          console.log(data);
+          console.log(data[0]);
+          console.log(data[0].username);
+          var newData = {firstName: data[0].firstName, lastName: data[0].lastName, username: data[0].username}
+          // callBack(null, newData);
+          var dataToReturn = [newData];
+          console.log(newData);
+          resolve(newData);
         }
       })
+    })
     }
   }
 }
