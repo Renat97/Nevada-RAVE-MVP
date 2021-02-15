@@ -100,8 +100,8 @@ const getFirstAccount = (data, callBack) => {
       console.log(data[0]);
       console.log(data[0].username);
       var newData = {firstName: data[0].firstName, lastName: data[0].lastName, username: data[0].username}
-      callBack(null, newData);
-      return newData;
+      callBack(null, data);
+      return data;
     }
   })
 }

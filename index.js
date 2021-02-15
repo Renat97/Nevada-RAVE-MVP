@@ -36,33 +36,30 @@ type Account {
   firstName: String,
   lastName: String,
   username: String,
+  email: String,
+  emergencyContactName: String,
+  position: String
+}
+type RegisterInput {
+  username: String!
+  password: String!
 }
 type Query {
   sayHi: String!,
-  getAccount: Account
+  getAccount: [Account]
 }
+
 `
 
 const resolvers = {
   Query: {
     getAccount() {
       return new Promise((resolve, reject) => {
-      connection.query(`select * from registration where username = "b"`, (err, data) => {
+      getFirstAccount('b', (err, data) => {
         if(err) {
-          console.log('CANT GET REGISTRATION INFO');
-          console.log(err);
-          // callBack(err,null);
           reject(err);
         } else {
-          console.log('GOT DATA');
-          console.log(data);
-          console.log(data[0]);
-          console.log(data[0].username);
-          var newData = {firstName: data[0].firstName, lastName: data[0].lastName, username: data[0].username}
-          // callBack(null, newData);
-          var dataToReturn = [newData];
-          console.log(newData);
-          resolve(newData);
+          resolve(data);
         }
       })
     })
