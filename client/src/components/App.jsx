@@ -39,6 +39,8 @@ const client = new ApolloClient({
   link: link
 })
 
+// Work on the authentication/authorization side as well as master staff page
+
 function Authentication(props) {
   const position = props.position;
   if (position==="volunteer") {
