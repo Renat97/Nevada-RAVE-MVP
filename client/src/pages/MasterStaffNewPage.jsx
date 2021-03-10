@@ -1,6 +1,6 @@
 import React, {useState, useEffect, Fragment} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import {Grid, TextField, Paper, Typography, Container} from '@material-ui/core';
+import {Grid, TextField, Paper, Typography, Container, Box} from '@material-ui/core';
 import Header from '../layouts/Header.jsx';
 import Button from '../components/Button.jsx';
 import { Button as MuiButton} from '@material-ui/core';
@@ -20,6 +20,13 @@ const useStyles = makeStyles(theme => ({
     '& .MuiFormControl-root': {
       width: '100%'
     }
+  },
+  button: {
+    marginTop: '20px',
+    color: 'white',
+    width: '300px',
+    height: '30px',
+    border: '1px solid black'
   }
 }))
 
@@ -135,9 +142,11 @@ var MasterStaffNewPage = () => {
             </Grid>
           </Grid>
       </form>
-      <Container>
-      <Button variant="contained" color="primary" size="large" text="Calendar" onClick={renderCalendar}/>
-      </Container>
+      <Box display="flex" justifyContent="center" alignItems="center">
+      <MuiButton variant="contained" color="primary" size="large" text="Calendar" onClick={renderCalendar} className={classes.button}>
+        Calendar
+      </MuiButton>
+      </Box>
       </Paper>
     </Fragment>
   )
