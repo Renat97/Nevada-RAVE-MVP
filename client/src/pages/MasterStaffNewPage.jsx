@@ -1,8 +1,9 @@
 import React, {useState, useEffect, Fragment} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import {Grid, TextField, Paper, Typography} from '@material-ui/core';
+import {Grid, TextField, Paper, Typography, Container} from '@material-ui/core';
 import Header from '../layouts/Header.jsx';
 import Button from '../components/Button.jsx';
+import { Button as MuiButton} from '@material-ui/core';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -54,6 +55,9 @@ var MasterStaffNewPage = () => {
       [name] : value
     })
   }
+  const renderCalendar = () => {
+    alert('hello!');
+  }
 
   return (
     <Fragment>
@@ -87,50 +91,53 @@ var MasterStaffNewPage = () => {
 
 
             <Grid item xs={6}>
-            <TextField variant="outlined" name="childOne" label="Child" value={values.childOne} onChange={handleInputChange}>
+            <TextField variant="outlined" name="childOne" label="Child one" value={values.childOne} onChange={handleInputChange}>
 
             </TextField>
             </Grid>
             <Grid item xs={6}>
-            <TextField variant="outlined" name="childTwo" label="Child" value={values.childTwo} onChange={handleInputChange}>
+            <TextField variant="outlined" name="childTwo" label="Child two" value={values.childTwo} onChange={handleInputChange}>
 
             </TextField>
             </Grid>
             <Grid item xs={6}>
-            <TextField variant="outlined" name="childThree" label="Child" value={values.childThree} onChange={handleInputChange}>
+            <TextField variant="outlined" name="childThree" label="Child three" value={values.childThree} onChange={handleInputChange}>
 
             </TextField>
             </Grid>
             <Grid item xs={6}>
-            <TextField variant="outlined" name="childFour" label="Child" value={values.childFour} onChange={handleInputChange}>
+            <TextField variant="outlined" name="childFour" label="Child four" value={values.childFour} onChange={handleInputChange}>
 
             </TextField>
             </Grid>
             <Grid item xs={6}>
-            <TextField variant="outlined" name="childFive" label="Child" value={values.childFive} onChange={handleInputChange}>
-
-            </TextField>
-            </Grid>
-
-            <Grid item xs={6}>
-            <TextField variant="outlined" name="childSix" label="Child" value={values.childSix} onChange={handleInputChange}>
+            <TextField variant="outlined" name="childFive" label="Child five" value={values.childFive} onChange={handleInputChange}>
 
             </TextField>
             </Grid>
 
             <Grid item xs={6}>
-            <TextField variant="outlined" name="childSeven" label="Child" value={values.childSeven} onChange={handleInputChange}>
+            <TextField variant="outlined" name="childSix" label="Child six" value={values.childSix} onChange={handleInputChange}>
 
             </TextField>
             </Grid>
 
             <Grid item xs={6}>
-            <TextField variant="outlined" name="childEight" label="Child" value={values.childEight} onChange={handleInputChange}>
+            <TextField variant="outlined" name="childSeven" label="Child seven" value={values.childSeven} onChange={handleInputChange}>
+
+            </TextField>
+            </Grid>
+
+            <Grid item xs={6}>
+            <TextField variant="outlined" name="childEight" label="Child eight" value={values.childEight} onChange={handleInputChange}>
 
             </TextField>
             </Grid>
           </Grid>
       </form>
+      <Container>
+      <Button variant="contained" color="primary" size="large" text="Calendar" onClick={renderCalendar}/>
+      </Container>
       </Paper>
     </Fragment>
   )
