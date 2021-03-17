@@ -233,6 +233,9 @@ server.listen({port: 5000}).then(res => {
 //   graphiql: true
 // }))
 
+
+// ADD AUTHORIZATION ROUTES!!!
+
 app.get('/authentication/:userName', (req, res, next) => {
   console.log('DATA SENT', req.params.userName);
   getUserRole(req,(err,data) => {
